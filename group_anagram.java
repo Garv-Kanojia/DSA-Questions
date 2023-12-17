@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 public class group_anagram {
 
     static List<List<String>> group(String[] nums){
