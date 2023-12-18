@@ -8,28 +8,27 @@ public class swap_pairs {
     }
  
 
-    public ListNode swapPairs(ListNode head) {
+    public static ListNode swapPairs(ListNode head){
         if(head == null || head.next == null){
             return head;
         }
-        ListNode dummyhead = new ListNode(-1);
-        dummyhead.next = head;
-        ListNode pre = dummyhead;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
 
-        while(pre.next != null && pre.next.next != null){
-            ListNode curr = pre.next;
+        ListNode pre = dummy;
+        ListNode curr = head;
+
+        while(curr != null && curr.next != null){
             ListNode next2 = curr.next;
-            pre = reverse(pre , curr , next2);
+            curr.next = next2.next;
+            pre.next = next2;
+            next2.next = curr;
+            pre = curr;
+            curr = pre.next;
         }
 
-        return dummyhead.next;
-    }
 
-    private static ListNode reverse(ListNode pre , ListNode curr , ListNode next2){
-        pre.next = next2;
-        curr.next = next2.next;
-        next2.next = curr;
-        return curr;
+        return dummy.next;
     }
 
 }
