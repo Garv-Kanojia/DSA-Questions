@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Max_Chunks {
+public class Max_ChunksII {
     public static void main(String[] args) {
         System.out.println(maxChunksToSorted(new int[]{5,4,3,2,1}));
     }
